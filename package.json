@@ -1,0 +1,32 @@
+{
+  "name": "react-express-starter",
+  "version": "1.0.0",
+  "description": "A starter setup for React with an Express backend and custom dependencies",
+  "main": "server.js",
+  "scripts": {
+    "test": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm run ios",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "heroku-postbuild": "mkdir upload && cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "eslint": "^5.6.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.15.3"
+  },
+  "keywords": [
+    "React",
+    "Express",
+    "starter"
+  ],
+  "author": "colelin26@gmail.com",
+  "license": "MIT"
+}
