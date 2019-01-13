@@ -7,7 +7,8 @@ import {
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
-  View
+  View,
+  ImageBackground
 } from "react-native";
 import { WebBrowser } from "expo";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
@@ -16,6 +17,8 @@ import {
   createStackNavigator,
   createAppContainer
 } from "react-navigation";
+
+const BackGroundPNG = require("../../assets/images/background3.png");
 
 export default class GetStarted extends React.Component {
   constructor(props) {
@@ -30,31 +33,36 @@ export default class GetStarted extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
+        <ImageBackground
+          source={BackGroundPNG}
+          style={{ width: "100%", height: "100%" }}
         >
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require("../../assets/images/robot-dev.png")
-                  : require("../../assets/images/robot-prod.png")
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Button
-              mode="outlined"
-              onPress={() => this.props.navigation.navigate("SelectCourse")}
-              style={styles.button}
-            >
-              Get Started
-            </Button>
-          </View>
-          <View style={styles.getStartedContainer} />
-        </ScrollView>
+          <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.contentContainer}
+          >
+            <View style={styles.welcomeContainer}>
+              <Image
+                source={
+                  __DEV__
+                    ? require("../../assets/images/robot-dev.png")
+                    : require("../../assets/images/robot-prod.png")
+                }
+                style={styles.welcomeImage}
+              />
+            </View>
+            <View style={styles.getStartedContainer}>
+              <Button
+                mode="outlined"
+                onPress={() => this.props.navigation.navigate("SelectCourse")}
+                style={styles.button}
+              >
+                I want to find a buddy!
+              </Button>
+            </View>
+            <View style={styles.getStartedContainer} />
+          </ScrollView>
+        </ImageBackground>
       </View>
     );
   }
@@ -63,7 +71,6 @@ export default class GetStarted extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     flexDirection: "column"
   },
   contentContainer: {
@@ -96,7 +103,7 @@ const styles = StyleSheet.create({
     color: "#2e78b7"
   },
   button: {
-    width: "50%",
+    width: "80%",
     margin: 8
   }
 });

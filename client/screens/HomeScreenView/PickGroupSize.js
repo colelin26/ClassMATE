@@ -7,35 +7,58 @@ import {
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
-  View
+  View,
+  ImageBackground
 } from "react-native";
 
-import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { Button, Card, Title, Paragraph, Snackbar } from "react-native-paper";
 import GroupSizeSelect from "../../components/GroupSizeSelect";
 
+const BackGroundPNG = require("../../assets/images/background1.png");
+
 export default class PickGroupSize extends React.Component {
+  state = {
+    visible: false
+  };
   static navigationOptions = {
     title: "Party Size"
   };
 
   render() {
+    const { visible } = this.state;
     return (
-      <View style={styles.contentContainer}>
-        <View style={styles.getStartedContainer}>
-          <Text style={styles.helpLinkText}>
-            Select your maximum party size.
-          </Text>
-          <GroupSizeSelect />
-          <Button
-            mode="outlined"
-            onPress={() => this.props.navigation.navigate("MatchResult")}
-            style={styles.button}
+      <ImageBackground
+        source={BackGroundPNG}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <View style={styles.contentContainer}>
+          <View style={styles.getStartedContainer}>
+            <Text style={styles.helpLinkText}>
+              Select your maximum party size.
+            </Text>
+            <GroupSizeSelect />
+            <Button
+              mode="outlined"
+              onPress={() => {
+                this.setState(state => ({ visible: !state.visible }));
+                setTimeout(() => {
+                  this.props.navigation.navigate("MatchResult");
+                }, 500);
+              }}
+              style={styles.button}
+            >
+              Find Your match
+            </Button>
+          </View>
+          <View style={styles.getStartedContainer} />
+          <Snackbar
+            visible={this.state.visible}
+            onDismiss={() => this.setState({ visible: false })}
           >
-            Next
-          </Button>
+            Successfully found matching groups!
+          </Snackbar>
         </View>
-        <View style={styles.getStartedContainer} />
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -46,7 +69,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     flexGrow: 1,
     flex: 1,
-    backgroundColor: "#fff",
     flexDirection: "column"
   },
   welcomeContainer: {
@@ -69,7 +91,7 @@ const styles = StyleSheet.create({
     color: "#2e78b7"
   },
   button: {
-    width: "30%",
+    width: "60%",
     margin: 20
   },
   helpLinkText: {

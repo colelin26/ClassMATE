@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-// import { ExpoLinksView } from "@expo/samples";
 import ProfileSetting from "./Profile/ProfileSetting";
 
 export default class ProfileScreen extends React.Component {

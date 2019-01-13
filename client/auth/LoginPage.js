@@ -8,10 +8,13 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   AsyncStorage,
-  View
+  View,
+  ImageBackground
 } from "react-native";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { TextInput, HelperText, withTheme } from "react-native-paper";
+
+const BackGroundPNG = require("../assets/images/background.png");
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -29,81 +32,86 @@ export default class LoginPage extends React.Component {
   };
 
   _signInAsync = async (email, password) => {
-    await AsyncStorage.setItem("userEmail", email);
-    await AsyncStorage.setItem("userPassword", password);
+    // await AsyncStorage.setItem("userEmail", email);
+    // await AsyncStorage.setItem("userPassword", password);
     this.props.navigation.navigate("Main");
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
+        <ImageBackground
+          source={BackGroundPNG}
+          style={{ width: "100%", height: "100%" }}
         >
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require("../assets/images/robot-dev.png")
-                  : require("../assets/images/robot-prod.png")
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-          <KeyboardAvoidingView
-            style={styles.wrapper}
-            behavior="padding"
-            keyboardVerticalOffset={80}
+          <ScrollView
+            style={styles.container}
+            contentContainerStyle={styles.contentContainer}
           >
-            <Text style={styles.getStartedText}>
-              Get started by login or sign up
-            </Text>
-            <TextInput
-              mode="outlined"
-              style={styles.inputContainerStyle}
-              label="UWaterloo Email"
-              onChangeText={text =>
-                this.setState({
-                  Login: {
-                    username: text
-                  }
-                })
-              }
-            />
-            <TextInput
-              mode="outlined"
-              style={styles.inputContainerStyle}
-              label="Password"
-              secureTextEntry={true}
-              onChangeText={text =>
-                this.setState({
-                  Login: {
-                    password: text
-                  }
-                })
-              }
-            />
-          </KeyboardAvoidingView>
-          <View style={styles.getStartedContainer}>
-            <Button
-              mode="outlined"
-              onPress={() => {
-                this._signInAsync(
-                  this.state.Login.username,
-                  this.state.Login.password
-                );
-              }}
-              style={styles.button}
+            <View style={styles.welcomeContainer}>
+              <Image
+                source={
+                  __DEV__
+                    ? require("../assets/images/robot-dev.png")
+                    : require("../assets/images/robot-prod.png")
+                }
+                style={styles.welcomeImage}
+              />
+            </View>
+            <KeyboardAvoidingView
+              style={styles.wrapper}
+              behavior="padding"
+              keyboardVerticalOffset={80}
             >
-              Login
-            </Button>
-            <Button mode="outlined" onPress={() => {}} style={styles.button}>
-              Sign Up
-            </Button>
-          </View>
-          <View style={styles.getStartedContainer} />
-        </ScrollView>
+              <Text style={styles.getStartedText}>
+                Get started by login or sign up
+              </Text>
+              <TextInput
+                mode="outlined"
+                style={styles.inputContainerStyle}
+                label="UWaterloo Email"
+                onChangeText={text =>
+                  this.setState({
+                    Login: {
+                      username: text
+                    }
+                  })
+                }
+              />
+              <TextInput
+                mode="outlined"
+                style={styles.inputContainerStyle}
+                label="Password"
+                secureTextEntry={true}
+                onChangeText={text =>
+                  this.setState({
+                    Login: {
+                      password: text
+                    }
+                  })
+                }
+              />
+            </KeyboardAvoidingView>
+            <View style={styles.getStartedContainer}>
+              <Button
+                mode="outlined"
+                onPress={() => {
+                  this._signInAsync(
+                    this.state.Login.username,
+                    this.state.Login.password
+                  );
+                }}
+                style={styles.button}
+              >
+                Login
+              </Button>
+              <Button mode="outlined" onPress={() => {}} style={styles.button}>
+                Sign Up
+              </Button>
+            </View>
+            <View style={styles.getStartedContainer} />
+          </ScrollView>
+        </ImageBackground>
       </View>
     );
   }
@@ -112,7 +120,6 @@ export default class LoginPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     flexDirection: "column"
   },
   inputContainerStyle: {

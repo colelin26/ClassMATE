@@ -34,7 +34,7 @@ export default class DateTimePickerTester extends Component {
           <Text style={styles.date}>
             {(this.state.date &&
               moment(this.state.date).format("dddd, MMMM Do YYYY")) ||
-              "Click to pick a date"}
+              "Click me to pick a date"}
           </Text>
         </TouchableOpacity>
         <DateTimePicker

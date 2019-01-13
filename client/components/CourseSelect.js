@@ -20,6 +20,14 @@ export default class CourseSelect extends React.Component {
         {
           label: "CS 241E",
           value: "cs241e"
+        },
+        {
+          label: "FINE 130",
+          value: "fine130"
+        },
+        {
+          label: "PD 11",
+          value: "pd11"
         }
       ]
     };
@@ -108,7 +116,6 @@ const pickerSelectStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "gray",
     borderRadius: 4,
-    backgroundColor: "white",
     color: "black"
   },
   inputAndroid: {
