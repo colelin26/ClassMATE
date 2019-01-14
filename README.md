@@ -1,5 +1,9 @@
 ## Usage
 
+### DevPost Link
+
+https://devpost.com/software/classmate-a0sw3c
+
 ### Installation
 
 ```bash
