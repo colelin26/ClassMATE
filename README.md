@@ -24,11 +24,11 @@ An App that helps UWaterloo Students to find study buddies for their courses whi
 
 By running the App, students will be prompted to create an account with their UWaterloo email and then enter their courses. Students then may use the App to find study buddies by selecting the course they wish to find buddies for, a study date, and maximum party size. The App will find parties that match his or her result.
 
-## How we built it
+## How it was built
 
 React Native is used for front-end.
 
-Redis/Express is used for back-end.
+Redis and Express is used for back-end.
 
 ## Screenshot
 
