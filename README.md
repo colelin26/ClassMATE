@@ -25,3 +25,29 @@ By running the App, students will be prompted to create an account with their UW
 React Native is used for front-end.
 
 Redis/Express is used for back-end.
+
+## Screenshot
+
+**Login Page**
+
+![Alt text](/doc/Login.png)
+
+**Get Started**
+
+![Alt text](/doc/getStarted.png)
+
+**Find your buddy**
+
+![Alt text](/doc/chooseCourse.png)
+
+![Alt text](/doc/chooseTime.png)
+
+**Match Result**
+
+![Alt text](/doc/matchResult.png)
+
+**Profile Setting**
+
+![Alt text](/doc/setProfile.png)
+
+![Alt text](/doc/group.png)

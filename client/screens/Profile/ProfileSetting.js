@@ -26,6 +26,8 @@ export default class MatchResult extends React.Component {
   state = {
     visible: false
   };
+
+  
   static navigationOptions = ({ navigation }) => {
     return {
       title: "null"

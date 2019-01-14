@@ -1,7 +1,7 @@
 {
   "name": "react-express-starter",
   "version": "1.0.0",
-  "description": "A starter setup for React with an Express backend and custom dependencies",
+  "description": "A starter setup for React with an Express back-end and custom dependencies",
   "main": "server.js",
   "scripts": {
     "test": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
@@ -24,9 +24,10 @@
     "prettier": "^1.15.3"
   },
   "keywords": [
+    "React-Native",
     "React",
-    "Express",
-    "starter"
+    "Redux",
+    "Expresss"
   ],
   "author": "colelin26@gmail.com",
   "license": "MIT"
