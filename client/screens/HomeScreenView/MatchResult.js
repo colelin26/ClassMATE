@@ -114,7 +114,13 @@ export default class MatchResult extends React.Component {
                           <Avatar
                             medium
                             source={{
-                              url: "https://placeimg.com/640/640/people"
+                              url: [
+                                "https://placeimg.com/640/640/people",
+                                "https://placeimg.com/640/640/animals",
+                                "https://placeimg.com/640/640/nature",
+                                "https://placeimg.com/640/640/tech",
+                                "https://placeimg.com/640/640/sepia"
+                              ][Math.floor(Math.random() * 5)]
                             }}
                             activeOpacity={0.7}
                             key={index}

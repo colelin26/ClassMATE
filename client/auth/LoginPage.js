@@ -11,9 +11,11 @@ import {
   View,
   ImageBackground
 } from "react-native";
+import { Avatar } from "react-native-elements";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
 import { TextInput, HelperText, withTheme } from "react-native-paper";
 
+const newlogo = require("../assets/images/newlogo.png");
 const BackGroundPNG = require("../assets/images/background.png");
 
 export default class LoginPage extends React.Component {
@@ -49,14 +51,15 @@ export default class LoginPage extends React.Component {
             contentContainerStyle={styles.contentContainer}
           >
             <View style={styles.welcomeContainer}>
-              <Image
+              <Avatar xlarge rounded source={newlogo} activeOpacity={0.7} />
+              {/* <Image
                 source={
                   __DEV__
-                    ? require("../assets/images/robot-dev.png")
+                    ? require("../assets/images/newlogo.png")
                     : require("../assets/images/robot-prod.png")
                 }
                 style={styles.welcomeImage}
-              />
+              /> */}
             </View>
             <KeyboardAvoidingView
               style={styles.wrapper}

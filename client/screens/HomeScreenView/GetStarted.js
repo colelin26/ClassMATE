@@ -12,12 +12,14 @@ import {
 } from "react-native";
 import { WebBrowser } from "expo";
 import { Button, Card, Title, Paragraph } from "react-native-paper";
+import { Avatar } from "react-native-elements";
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer
 } from "react-navigation";
 
+const newlogo = require("../../assets/images/newlogo.png");
 const BackGroundPNG = require("../../assets/images/background3.png");
 
 export default class GetStarted extends React.Component {
@@ -42,14 +44,7 @@ export default class GetStarted extends React.Component {
             contentContainerStyle={styles.contentContainer}
           >
             <View style={styles.welcomeContainer}>
-              <Image
-                source={
-                  __DEV__
-                    ? require("../../assets/images/robot-dev.png")
-                    : require("../../assets/images/robot-prod.png")
-                }
-                style={styles.welcomeImage}
-              />
+              <Avatar xlarge rounded source={newlogo} activeOpacity={0.7} />
             </View>
             <View style={styles.getStartedContainer}>
               <Button
